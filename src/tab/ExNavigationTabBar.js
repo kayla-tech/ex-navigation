@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 
+import {BlurView} from 'react-native-blur'
+
 import { unsupportedNativeView } from '../ExUnsupportedNativeView';
 
 let Components;
@@ -34,7 +36,11 @@ export default class ExNavigationTabBar extends React.Component {
     return (
       <View style={[styles.container, {height}]}>
         {isTranslucent &&
-          <Components.BlurView style={[styles.translucentUnderlay, {height}]} />}
+          <BlurView
+            blurType="light"
+            style={[styles.translucentUnderlay, {height}]}
+          />
+        }
 
         <View style={[styles.innerContainer, {backgroundColor}, this.props.style]}>
           <View style={styles.itemContainer}>
