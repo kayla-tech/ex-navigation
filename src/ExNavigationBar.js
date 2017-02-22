@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import PureComponent from './utils/PureComponent';
+import {BlurView} from 'react-native-blur'
 import { unsupportedNativeView } from './ExUnsupportedNativeView';
 import { withNavigation } from './ExNavigationComponents';
 
@@ -248,9 +249,8 @@ export default class ExNavigationBar extends PureComponent {
     return (
       <View pointerEvents={this.props.visible ? 'auto' : 'none'} style={wrapperStyle}>
         {isTranslucent && (
-          <Components.BlurView
-            tint={translucentTint}
-            intensity={100}
+          <BlurView
+            blurType="light"
             style={[styles.translucentUnderlay, {height}]}
           />
         )}
