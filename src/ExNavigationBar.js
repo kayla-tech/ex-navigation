@@ -248,14 +248,13 @@ export default class ExNavigationBar extends PureComponent {
 
     return (
       <View pointerEvents={this.props.visible ? 'auto' : 'none'} style={wrapperStyle}>
-        {isTranslucent && (
-          <BlurView
-            blurType="light"
-            style={[styles.translucentUnderlay, {height}]}
-          />
-        )}
-
         <Animated.View style={containerStyle}>
+          {isTranslucent && (
+            <BlurView
+              blurType="light"
+              style={[styles.translucentUnderlay, {height: (height - ExNavigationBar.DEFAULT_BORDER_BOTTOM_WIDTH)}]}
+            />
+          )}
           {backgroundComponents}
           <View style={[styles.appbarInnerContainer, {top: this.props.statusBarHeight}]}>
             {titleComponents}
